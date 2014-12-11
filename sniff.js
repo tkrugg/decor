@@ -1,4 +1,4 @@
-/**
+/** 
  * This module sets has() flags based on the current browser:
  *
  * - `has("webkit")`, `has("chrome")`, `has("safari")`
