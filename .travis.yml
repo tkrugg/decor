@@ -19,5 +19,5 @@ install:
   - cd ../..
 script:
   - grunt jshint
-  - grunt intern:node
-  - if [[ "$TRAVIS_SECURE_ENV_VARS" == "true" ]]; then grunt intern:remote; fi
+  - grunt test:remote
+  #- if [[ "$TRAVIS_SECURE_ENV_VARS" == "true" ]]; then grunt intern:remote; fi
