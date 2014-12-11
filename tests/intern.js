@@ -4,24 +4,10 @@
 //         > grunt intern:node
 //     With browser: http://yourserver/path/to/decor/node_modules/intern/client.html?config=tests/intern
 define({
-	loader: {
-		baseUrl: typeof window !== "undefined" ? "../../.." : "..",
-		packages: ["decor"]
-	},
-
-	useLoader: {
-		"host-node": "dojo/dojo",
-		"host-browser": "../../../requirejs/require.js"
-	},
 
 	proxyPort: 9000,
 
 	proxyUrl: "http://localhost:9000/",
-
-	capabilities: {
-		"selenium-version": "2.37.0",
-		"idle-timeout": 60
-	},
 
 	environments: [
 		{browserName: "internet explorer", version: "9", platform: "Windows 7", name: "decor"},
@@ -53,14 +39,27 @@ define({
 
 	maxConcurrency: 3,
 
-	useSauceConnect: true,
+	// Maximum duration of a test, in milliseconds
+	TEST_TIMEOUT: 300000, // 5 minutes
+	
+	// Maximum time to wait for someting (pollUntil, etc...)
+	WAIT_TIMEOUT: 180000, // 3 minutes
+	
+	// Interval between two polling request, in milliseconds (for pollUntil)
+	POLL_INTERVAL: 500, // 0.5 seconds
 
-	webdriver: {
-		host: "localhost",
-		port: 4444
+	loader: {
+		baseUrl: typeof window !== "undefined" ? "../../.." : "..",
+		packages: ["decor"]
+	},
+
+	useLoader: {
+		"host-node": "requirejs",
+		"host-browser": "../../../requirejs/require.js"
 	},
 
 	suites: ["decor/tests/unit/all"],
+	functionalSuites: ["decor/tests/functional/all"],
 
 	excludeInstrumentation: /^((decor(\/|\\)(node_modules|tests))|dojo|requirejs|dcl)/
 });

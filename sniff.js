@@ -23,7 +23,8 @@ define(["./features"], function (has) {
 		if (isWebkit) {
 			has.add("webkit", parseFloat(dua.split("WebKit/")[1]) || undefined);
 			has.add("chrome", parseFloat(dua.split("Chrome/")[1]) || undefined);
-			has.add("safari", dav.indexOf("Safari") >= 0 && !has("chrome") ?
+			has.add("android", parseFloat(dua.split("Android ")[1]) || undefined);
+			has.add("safari", dav.indexOf("Safari") >= 0 && !has("chrome") && !has("android") ?
 				parseFloat(dav.split("Version/")[1]) : undefined);
 			if (dua.match(/(iPhone|iPod|iPad)/)) {
 				var p = RegExp.$1.replace(/P/, "p");
@@ -32,7 +33,6 @@ define(["./features"], function (has) {
 				has.add(p, os);		// "iphone", "ipad" or "ipod"
 				has.add("ios", os);
 			}
-			has.add("android", parseFloat(dua.split("Android ")[1]) || undefined);
 		} else {
 			var isIE = 0;
 			if (document.all) {
