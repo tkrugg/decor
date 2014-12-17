@@ -26,10 +26,14 @@ define({
 		// {browserName: "android", platform: "Linux", version: "4.1", name: "decor"},
 		// {browserName: "android", platform: "Linux", "device-type": "tablet", version: "4.0", name: "decor"},
 		// {browserName: "android", platform: "Linux", version: "4.0", name: "decor"},
-		{deviceName: 'iPhone Simulator', browserName: 'safari', platformName: 'ios', platformVersion: '7.1', "appium-version": "1.2.2", name: "decor" },
-		{deviceName: 'iPad Simulator', browserName: 'safari', platformName: 'ios', platformVersion: '7.1', "appium-version": "1.2.2" , name: "decor"},
-		{deviceName: 'iPhone Simulator', browserName: 'safari', platformName: 'ios', platformVersion: '6.0', "appium-version": "1.2.2" , name: "decor"},
-		{deviceName: 'iPad Simulator', browserName: 'safari', platformName: 'ios', platformVersion: '6.0', "appium-version": "1.2.2", name: "decor"}
+		{deviceName: "iPhone Simulator", browserName: "safari", platformName: "ios",
+			platformVersion: "7.1", "appium-version": "1.2.2", name: "decor" },
+		{deviceName: "iPad Simulator", browserName: "safari", platformName: "ios",
+			platformVersion: "7.1", "appium-version": "1.2.2", name: "decor"},
+		{deviceName: "iPhone Simulator", browserName: "safari", platformName: "ios",
+			platformVersion: "6.0", "appium-version": "1.2.2", name: "decor"},
+		{deviceName: "iPad Simulator", browserName: "safari", platformName: "ios",
+			platformVersion: "6.0", "appium-version": "1.2.2", name: "decor"}
 	],
 
 	maxConcurrency: 3,
