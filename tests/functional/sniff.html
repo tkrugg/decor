@@ -19,6 +19,9 @@
 			require({
 				baseUrl: "../../.."
 			}, ["decor/sniff", "requirejs-domready/domReady!"], function(has){
+				var tbody = document.getElementById("tbody");
+
+
 				window._has = {};
 				[
 					"webkit", "chrome", "android",
@@ -27,9 +30,15 @@
 					"safari", "iphone", "ipad", "mac", "ios"
 				].forEach(function (key) {
 					window._has[key] = has(key);
-					var res = has(key);
-					tbody.innerHTML += "<tr><td>has(\"" + key + "\")</td><td>" +
-						(res === undefined ? "undefined" : res) + "</td></tr>";
+					var tr = document.createElement("tr"),
+						tdkey = document.createElement("td"),
+						tdres = document.createElement("td");
+
+					tdkey.innerHTML = 'has("' + key + '")';
+					tdres.innerHTML = JSON.stringify(window._has[key]);
+					tr.appendChild(tdkey);
+					tr.appendChild(tdres);
+					tbody.appendChild(tr);		
 				});
 				ready = true;
 			});
